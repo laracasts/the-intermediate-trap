@@ -9,8 +9,8 @@ return new class extends Migration {
     {
         Schema::create('replies', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('thread_id');
+            $table->foreignIdFor(\App\Models\User::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(\App\Models\Thread::class)->constrained()->cascadeOnDelete();
             $table->text('body');
             $table->boolean('best')->default(false);
             $table->timestamps();

@@ -21,7 +21,8 @@ class BestReplyNotification extends Notification
     public function toMail($notifiable): MailMessage
     {
         return (new MailMessage)
-            ->line('Your reply was marked as the best answer!');
+            ->line('Your reply was marked as the best answer!')
+            ->line('Yada yada...');
     }
 
     public function toArray($notifiable): array

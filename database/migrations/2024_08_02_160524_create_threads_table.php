@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('threads', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->foreignIdFor(\App\Models\User::class);
             $table->string('title');
             $table->text('body');
             $table->timestamps();

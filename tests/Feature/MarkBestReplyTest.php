@@ -32,7 +32,7 @@ it('awards experience', function () {
     expect($reply->user->fresh()->experience)->toBe(1000);
 });
 
-it('notifies the owner of the reply', function () {
+it('notifies the reply owner', function () {
     Notification::fake();
 
     $reply = Reply::factory()->create();
@@ -42,5 +42,4 @@ it('notifies the owner of the reply', function () {
     Notification::assertSentTo(
         $reply->user, BestReplyNotification::class
     );
-
 });
